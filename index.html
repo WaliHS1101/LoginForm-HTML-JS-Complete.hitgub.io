@@ -99,7 +99,8 @@
 
         function clr() {
             for (i = 0; i < document.getElementsByTagName("input").length; i++) {
-                document.getElementsByTagName("input")[i].value = ""
+                document.getElementsByTagName("input")[i].value = "";
+                document.getElementById("error").style.display = "none"
             }
         }
 
@@ -117,24 +118,32 @@
             }
 
             else {
-                person.push({
-                    FName: F_Name,
-                    LName: L_Name,
-                    Age: Age,
-                    Email: Email,
-                    Password: Pass
-                })
-                document.getElementById("error").style.display = "none";
-                console.log(person);
-                clr();
-                document.getElementById("main").innerText = "Log In";
-                document.getElementById("Log-IN").style.display = "block";
-                document.getElementById("Sign-UP").style.display = "none";
-                document.getElementById("Side-UP").style.display = "block";
-                document.getElementById("Side-In").style.display = "none";
-                document.getElementById("Fname").style.display = "none";
-                document.getElementById("Lname").style.display = "none";
-                document.getElementById("age").style.display = "none";
+                let sub = person.find(obj => obj.Email == document.getElementById("email").value);
+                if (sub) {
+                    document.getElementById("error").style.display = "block";
+                    document.getElementById("error").innerText = "User already Exists";
+                    console.log("User already Exists");
+                }
+                else {
+                    person.push({
+                        FName: F_Name,
+                        LName: L_Name,
+                        Age: Age,
+                        Email: Email,
+                        Password: Pass
+                    })
+                    document.getElementById("error").style.display = "none";
+                    console.log(person);
+                    clr();
+                    document.getElementById("main").innerText = "Log In";
+                    document.getElementById("Log-IN").style.display = "block";
+                    document.getElementById("Sign-UP").style.display = "none";
+                    document.getElementById("Side-UP").style.display = "block";
+                    document.getElementById("Side-In").style.display = "none";
+                    document.getElementById("Fname").style.display = "none";
+                    document.getElementById("Lname").style.display = "none";
+                    document.getElementById("age").style.display = "none";
+                }
             }
         }
 
@@ -165,6 +174,7 @@
             document.getElementById("Fname").style.display = "none";
             document.getElementById("Lname").style.display = "none";
             document.getElementById("age").style.display = "none";
+            clr();
         }
 
         function SideUp() {
@@ -177,6 +187,7 @@
             document.getElementById("Fname").style.display = "block";
             document.getElementById("Lname").style.display = "block";
             document.getElementById("age").style.display = "block";
+            clr();
         }
 
     </script>
