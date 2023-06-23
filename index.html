@@ -37,7 +37,7 @@
             background-color: rgb(196, 166, 127);
         }
 
-        input {
+        .input-F {
             margin: 3px;
             width: 80%;
         }
@@ -72,11 +72,11 @@
             </div>
             <div class="input-box m-auto ">
                 <center class="m-5">
-                    <input type="text" id="Fname" class="F-Name m-2" placeholder="First Name">
-                    <input type="text" id="Lname" class="L-Name m-2" placeholder="Last Name">
-                    <input type="number" id="age" class="Age m-2" placeholder="Age">
-                    <input type="email" id="email" class="Email m-2" placeholder="Email">
-                    <input type="password" id="pass" class="Pass d-block m-2" placeholder="Password">
+                    <input type="text" id="Fname" class="F-Name m-2 input-F" placeholder="First Name">
+                    <input type="text" id="Lname" class="L-Name m-2 input-F" placeholder="Last Name">
+                    <input type="number" id="age" class="Age m-2 input-F" placeholder="Age">
+                    <input type="email" id="email" class="Email m-2 input-F" placeholder="Email">
+                    <input type="password" id="pass" class="Pass d-block m-2 input-F" placeholder="Password">
                     <button class="btn btn-success mt-3" onclick="SignUP()" id="Sign-UP">Sign UP</button>
                     <button class="inputIN btn btn-success mt-3" onclick="LogIn()" id="Log-IN">Log In</button>
                     <button class="btn btn-danger mt-3" onclick="clr()" id="clean">Clean</button>
@@ -85,9 +85,7 @@
             </div>
         </div>
     </div>
-
     <script>
-
         let person = [{
             FName: "Wali",
             LName: "Hussain",
@@ -96,7 +94,6 @@
             Password: "666555"
 
         }];
-
         function clr() {
             for (i = 0; i < document.getElementsByTagName("input").length; i++) {
                 document.getElementsByTagName("input")[i].value = "";
@@ -155,7 +152,7 @@
                 document.getElementById("error").innerText = "Log In";
                 console.log("Log In");
                 clr();
-                window.location.href="Home.html";
+                window.location.href = "Home.html";
             }
             else {
                 document.getElementById("error").style.display = "block";
@@ -190,8 +187,10 @@
             document.getElementById("age").style.display = "block";
             clr();
         }
-
     </script>
+
+    <script src="Person.js"></script>
+    <script src="index.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
